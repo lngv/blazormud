@@ -1,5 +1,9 @@
 ﻿@inherits LayoutComponentBase
-@layout AccountLayout
+@*#if (UseWebAssembly && InteractiveAtRoot)
+@layout MudBlazor.Template.Client.Layout.MainLayout
+##else
+@layout MudBlazor.Template.Components.Layout.MainLayout
+##endif*@
 
 <h1>Manage your account</h1>
 
