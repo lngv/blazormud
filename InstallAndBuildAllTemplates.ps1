@@ -8,7 +8,7 @@ dotnet new install $(Join-Path $PSScriptRoot '/src/mudblazor') --force
 dotnet new mudblazor --interactivity None --output $(Join-Path $tests 'InteractivityNone')
 dotnet build $(Join-Path $tests '/InteractivityNone') /warnaserror
 
-dotnet new mudblazor --interactivity Auto --output $(Join-Path $tests '/InteractivityAuto')
+dotnet new mudblazor --interactivity Auto --output $(Join-Path $tests 'InteractivityAuto')
 dotnet build $(Join-Path $tests '/InteractivityAuto') /warnaserror
 
 dotnet new mudblazor --interactivity Server --output $(Join-Path $tests 'InteractivityServer')

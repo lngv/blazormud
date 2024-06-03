@@ -4,24 +4,18 @@
   "classifications": [
     "Web",
     "Blazor",
-    "WebAssembly",
-    "MudBlazor"
+    "WebAssembly"
   ],
   "name": "MudBlazor Web App",
-  "shortName": "mudblazor",
-  "defaultName": "MudBlazorWebApp",
+  "defaultName": "MudBlazorBlazorApp",
   "description": "A project template for creating a MudBlazor web app that supports both server-side rendering and client interactivity. This template can be used for web apps with rich dynamic user interfaces (UIs).",
   "groupIdentity": "MudBlazor.Web.Blazor",
-  
+  "precedence": "9800",
   "guids": [
     "4C26868E-5E7C-458D-82E3-040509D0C71F",
-    "650B3CE7-2E93-4CC4-9F46-466686815EAA",
-    "53bc9b9d-9d6a-45d4-8429-2a2761773502",
-    "9A19103F-16F7-4668-BE54-9A1E7A4F7557",
-    "650B3CE7-2E93-4CC4-9F46-466686815EA1",
-    "5990939C-7E7B-4CFA-86FF-44CA57564981",
     "5990939C-7E7B-4CFA-86FF-44CA5756498A",
-    "4C26868E-5E7C-458D-82E3-040509D0C710"
+    "650B3CE7-2E93-4CC4-9F46-466686815EAA",
+    "53bc9b9d-9d6a-45d4-8429-2a2761773502"
   ],
   "identity": "MudBlazorWebApp.CSharp.8.0",
   "thirdPartyNotices": "",
@@ -44,26 +38,19 @@
       "path": "MudBlazor.Template.Client/MudBlazor.Template.Client.csproj"
     }
   ],
+  "shortName": "mudblazor",
   "sourceName": "MudBlazor.Template",
   "sources": [
     {
       "source": "./",
       "target": "./",
       "exclude": [
-        ".template.config/**",
-        "CreateAllTemplatesForTests.bat"
+        ".template.config/**"
       ],
       "copyOnly": [
         "**/wwwroot/bootstrap/**"
       ],
       "modifiers": [
-
-        {
-          "condition": "(!IndividualLocalAuth)",
-          "exclude": [
-            "**/wwwroot/bootstrap/**"
-          ]
-        },
         {
           "condition": "(!UseWebAssembly)",
           "exclude": [
@@ -84,21 +71,17 @@
           }
         },
         {
-          "condition": "(UseWebAssembly && !InteractiveAtRoot)",
-          "rename": {
-            "MudBlazor.Template/Components/Pages/Weather.razor": "./MudBlazor.Template.Client/Pages/Weather.razor"
-          }
-        },
-        {
           "condition": "(!UseProgramMain)",
           "exclude": [
-            "MudBlazor.Template/Program.Main.cs"
+            "MudBlazor.Template/Program.Main.cs",
+            "MudBlazor.Template.Client/Program.Main.cs"
           ]
         },
         {
           "condition": "(UseProgramMain)",
           "exclude": [
-            "MudBlazor.Template/Program.cs"
+            "MudBlazor.Template/Program.cs",
+            "MudBlazor.Template.Client/Program.cs"
           ],
           "rename": {
             "Program.Main.cs": "Program.cs"
@@ -121,7 +104,7 @@
           "exclude": [
             "MudBlazor.Template/Components/Pages/Auth.*",
             "MudBlazor.Template/Components/Pages/Counter.*",
-            "MudBlazor.Template.Client/Pages/Weather.*",
+            "MudBlazor.Template/Components/Pages/Weather.*",
             "MudBlazor.Template/Components/Layout/NavMenu.*",
             "MudBlazor.Template/wwwroot/bootstrap/**",
             "MudBlazor.Template/wwwroot/favicon.*",
