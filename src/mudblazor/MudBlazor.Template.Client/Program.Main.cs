@@ -3,6 +3,7 @@ using MudBlazor.Template.Client;
 using Microsoft.AspNetCore.Components.Authorization;
 #endif
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MudBlazor.Services;
 
 namespace MudBlazor.Template.Client;
 
@@ -12,12 +13,14 @@ class Program
     {
         var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-        #if (IndividualLocalAuth)
+        builder.Services.AddMudServices();
+
+#if (IndividualLocalAuth)
         builder.Services.AddAuthorizationCore();
         builder.Services.AddCascadingAuthenticationState();
         builder.Services.AddSingleton<AuthenticationStateProvider, PersistentAuthenticationStateProvider>();
 
-        #endif
+#endif
         await builder.Build().RunAsync();
     }
 }

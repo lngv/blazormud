@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 #endif
+using MudBlazor.Services;
 #if (UseWebAssembly && SampleContent)
 using MudBlazor.Template.Client.Pages;
 #endif
@@ -23,8 +24,11 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        // Add MudBlazor services
+        builder.Services.AddMudServices();
+
         // Add services to the container.
-        #if (!UseServer && !UseWebAssembly)
+#if (!UseServer && !UseWebAssembly)
         builder.Services.AddRazorComponents();
         #else
         builder.Services.AddRazorComponents()
@@ -71,7 +75,7 @@ public class Program
         #endif
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-        builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+        builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddSignInManager()
             .AddDefaultTokenProviders();

@@ -7,7 +7,7 @@
     "WebAssembly"
   ],
   "name": "MudBlazor Web App",
-  "defaultName": "MudBlazorBlazorApp",
+  "defaultName": "MudBlazorApp",
   "description": "A project template for creating a MudBlazor web app that supports both server-side rendering and client interactivity. This template can be used for web apps with rich dynamic user interfaces (UIs).",
   "groupIdentity": "MudBlazor.Web.Blazor",
   "precedence": "9800",
