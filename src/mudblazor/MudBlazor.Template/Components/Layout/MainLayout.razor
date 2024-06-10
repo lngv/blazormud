@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-@*#if (SampleContent) -->
+@*#if (SampleContent)
 <MudThemeProvider Theme="@Theme" IsDarkMode="_isDarkMode" />
 @*#if (InteractiveAtRoot)
 <MudPopoverProvider />
@@ -9,11 +9,11 @@
 ##endif*@
 <MudLayout>
     <MudAppBar Elevation="1">
-        @*#if (InteractiveAtRoot) -->
+        @*#if (InteractiveAtRoot)
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         ##endif*@
         <MudText Typo="Typo.h5" Class="ml-3">Application</MudText>
-        @*#if (InteractiveAtRoot) -->
+        @*#if (InteractiveAtRoot)
         <MudSpacer />
         <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@DarkModeToggle" />
         <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
