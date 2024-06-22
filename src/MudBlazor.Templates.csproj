@@ -47,4 +47,12 @@
     <Compile Remove="**\*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="mudblazor\mudblazor.template.client\pages\Weather.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="mudblazor\MudBlazor.Template.Client\wwwroot\" />
+  </ItemGroup>
+
 </Project>

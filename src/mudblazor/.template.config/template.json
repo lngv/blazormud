@@ -4,10 +4,11 @@
   "classifications": [
     "Web",
     "Blazor",
-    "WebAssembly"
+    "WebAssembly",
+    "MudBlazor"
   ],
   "name": "MudBlazor Web App",
-  "defaultName": "MudBlazorApp",
+  "defaultName": "MudBlazorWebApp",
   "description": "A project template for creating a MudBlazor web app that supports both server-side rendering and client interactivity. This template can be used for web apps with rich dynamic user interfaces (UIs).",
   "groupIdentity": "MudBlazor.Web.Blazor",
   "precedence": "9800",
@@ -52,6 +53,12 @@
       ],
       "modifiers": [
         {
+          "condition": "(!IndividualLocalAuth)",
+          "exclude": [
+            "**/wwwroot/bootstrap/**"
+          ]
+        },
+        {
           "condition": "(!UseWebAssembly)",
           "exclude": [
             "MudBlazor.Template.Client/**",
@@ -66,7 +73,6 @@
           "rename": {
             "MudBlazor.Template/Components/Layout/": "./MudBlazor.Template.Client/Layout/",
             "MudBlazor.Template/Components/Pages/Home.razor": "./MudBlazor.Template.Client/Pages/Home.razor",
-            "MudBlazor.Template/Components/Pages/Weather.razor": "./MudBlazor.Template.Client/Pages/Weather.razor",
             "MudBlazor.Template/Components/Routes.razor": "./MudBlazor.Template.Client/Routes.razor"
           }
         },
@@ -88,9 +94,10 @@
           }
         },
         {
-          "condition": "(!(UseServer && !UseWebAssembly))",
+          "condition": "(UseWebAssembly || (!UseWebAssembly && !UseServer))",
           "exclude": [
-            "MudBlazor.Template/Components/Pages/Counter.razor"
+            "MudBlazor.Template/Components/Pages/Counter.razor",
+            "MudBlazor.Template/Components/Pages/Weather.razor"
           ]
         },
         {
@@ -327,7 +334,7 @@
     "InteractivityPlatform": {
       "type": "parameter",
       "datatype": "choice",
-      "defaultValue": "Server",
+      "defaultValue": "WebAssembly",
       "displayName": "_Interactive render mode",
       "description": "Chooses which interactive render mode to use for interactive components",
       "choices": [
@@ -356,7 +363,7 @@
     "InteractivityLocation": {
       "type": "parameter",
       "datatype": "choice",
-      "defaultValue": "InteractivePerPage",
+      "defaultValue": "InteractiveGlobal",
       "displayName": "_Interactivity location",
       "description": "Chooses which components will have interactive rendering enabled",
       "isEnabled": "(InteractivityPlatform != \"None\")",
