@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.*" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.*" Condition="'$(IndividualLocalAuth)' == 'True'" />
-    <PackageReference Include="MudBlazor" Version="7.0.0-preview.4" />
+    <PackageReference Include="MudBlazor" Version="7.0.0-rc.2" />
   </ItemGroup>
 
 </Project>

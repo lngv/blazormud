@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -19,7 +19,7 @@
 
   <!--#if (!UseWebAssembly && !IndividualLocalAuth) -->
   <ItemGroup>
-    <PackageReference Include="MudBlazor" Version="7.0.0-preview.4" />
+    <PackageReference Include="MudBlazor" Version="7.0.0-rc.2" />
   </ItemGroup>
   <!--#endif -->
   <!--#if (UseWebAssembly || IndividualLocalAuth) -->
@@ -31,7 +31,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.*" Condition="'$(IndividualLocalAuth)' == 'True' AND '$(UseLocalDB)' != 'True'" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.*" Condition="'$(IndividualLocalAuth)' == 'True' AND '$(UseLocalDB)' == 'True'" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.*" Condition="'$(IndividualLocalAuth)' == 'True'" />
-    <PackageReference Include="MudBlazor" Version="7.0.0-preview.4" Condition="'$(UseWebAssembly)' != 'True'"/>
+    <PackageReference Include="MudBlazor" Version="7.0.0-rc.2" Condition="'$(UseWebAssembly)' != 'True'" />
+    <PackageReference Include="Extensions.MudBlazor.StaticInput" Version="2.0.0-rc.2" />
   </ItemGroup>
 
   <!--#endif -->
