@@ -32,7 +32,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.*" Condition="'$(IndividualLocalAuth)' == 'True' AND '$(UseLocalDB)' == 'True'" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.*" Condition="'$(IndividualLocalAuth)' == 'True'" />
     <PackageReference Include="MudBlazor" Version="7.0.0-rc.2" Condition="'$(UseWebAssembly)' != 'True'" />
-    <PackageReference Include="Extensions.MudBlazor.StaticInput" Version="2.0.0-rc.2" />
+    <PackageReference Include="Extensions.MudBlazor.StaticInput" Version="2.0.0-rc.2" Condition="'$(IndividualLocalAuth)' == 'True'" />
   </ItemGroup>
 
   <!--#endif -->
