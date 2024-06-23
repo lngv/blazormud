@@ -25,7 +25,7 @@
         <MudItem md="12">
             <MudStaticTextField For="@(() => Input.PhoneNumber)" @bind-Value="Input.PhoneNumber"
                                 Label="Phone Number" HelperText="Please enter your phone number."
-                                UserAttributes="@(new() { { "autocomplete", "tel" } } )" />
+                                UserAttributes="@(new() { { "autocomplete", "tel-national" } } )" />
         </MudItem>
         <MudItem md="12">
             <MudStaticButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" FormAction="FormAction.Submit">Save</MudStaticButton>
