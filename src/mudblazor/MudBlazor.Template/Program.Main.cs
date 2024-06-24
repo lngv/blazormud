@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 #endif
+using MudBlazor.Services;
 #if (UseWebAssembly && SampleContent)
 using MudBlazor.Template.Client.Pages;
 #endif
@@ -14,7 +15,6 @@ using MudBlazor.Template.Components;
 using MudBlazor.Template.Components.Account;
 using MudBlazor.Template.Data;
 #endif
-using MudBlazor.Services;
 
 namespace MudBlazor.Template;
 
@@ -24,8 +24,11 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        // Add MudBlazor services
+        builder.Services.AddMudServices();
+
         // Add services to the container.
-        #if (!UseServer && !UseWebAssembly)
+#if (!UseServer && !UseWebAssembly)
         builder.Services.AddRazorComponents();
         #else
         builder.Services.AddRazorComponents()
@@ -38,8 +41,6 @@ public class Program
             .AddInteractiveWebAssemblyComponents();
           #endif
         #endif
-
-		builder.Services.AddMudServices();
 
         #if (IndividualLocalAuth)
         builder.Services.AddCascadingAuthenticationState();
@@ -127,9 +128,7 @@ public class Program
         #else
         app.MapRazorComponents<App>();
         #endif
-        #if (UseWebAssembly && SampleContent)
-            .AddAdditionalAssemblies(typeof(Counter).Assembly);
-        #elif (UseWebAssembly)
+        #if (UseWebAssembly)
             .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
         #endif
 

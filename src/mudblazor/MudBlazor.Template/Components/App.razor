@@ -4,38 +4,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/" />
-    @*#if (IndividualLocalAuth)
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
-    ##endif*@
-	
+    <base href="/" />  
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
-	
-	@*#if (IndividualLocalAuth)
-	<link rel="stylesheet" href="app.css" />
-	##endif*@
-	
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />  
     @*#if (SampleContent)
-    <link rel="icon" type="image/png" href="favicon.ico" />
+    <link rel="icon" type="image/ico" href="favicon.ico" />
     ##endif*@
     @*#if (!InteractiveAtRoot)
     <HeadOutlet />
     ##elseif (IndividualLocalAuth)
-    @if(RenderModeForPage is not null)
-    {
-        <HeadOutlet @rendermode="@RenderModeForPage" />    
-    }
-    else
-    {
-        <HeadOutlet />
-    }
+    <HeadOutlet @rendermode="RenderModeForPage" />
     ##elseif (UseServer && UseWebAssembly)
-    <HeadOutlet @rendermode="@InteractiveAuto" />
+    <HeadOutlet @rendermode="InteractiveAuto" />
     ##elseif (UseServer)
-    <HeadOutlet @rendermode="@InteractiveServer" />
+    <HeadOutlet @rendermode="InteractiveServer" />
     ##else
-    <HeadOutlet @rendermode="@InteractiveWebAssembly" />
+    <HeadOutlet @rendermode="InteractiveWebAssembly" />
     ##endif*@
 </head>
 
@@ -43,23 +27,16 @@
     @*#if (!InteractiveAtRoot)
     <Routes />
     ##elseif (IndividualLocalAuth)
-    @if(RenderModeForPage is not null)
-    {
-        <Routes @rendermode="@RenderModeForPage" />
-    }
-    else
-    {
-        <Routes />
-    }
+    <Routes @rendermode="RenderModeForPage" />
     ##elseif (UseServer && UseWebAssembly)
-    <Routes @rendermode="@InteractiveAuto" />
+    <Routes @rendermode="InteractiveAuto" />
     ##elseif (UseServer)
-    <Routes @rendermode="@InteractiveServer" />
+    <Routes @rendermode="InteractiveServer" />
     ##else
-    <Routes @rendermode="@InteractiveWebAssembly" />
+    <Routes @rendermode="InteractiveWebAssembly" />
     ##endif*@
     <script src="_framework/blazor.web.js"></script>
-	<script src="_content/MudBlazor/MudBlazor.min.js"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
 </body>
 
 </html>
