@@ -51,8 +51,3 @@ If you get an error about the script not being digitally signed use this command
 ```
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
-
-
-## To Do for the .NET 8 Template
-
-- Integrate MudBlazor components into the authentication system (currently using Bootstrap components from the original template)
